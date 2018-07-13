@@ -24,8 +24,10 @@
     <!--This is the start of Javascript. how do i link like a css 
     what do I put in it?-->
     <script type="text/javascript">
+
+
         //These are the words I want the computer to pull from that the user will guess//
-        var comChoice = ["desert", "mountains", "sunset", "beautiful", "dusty"];
+        var computerChoice = ["desert", "mountains", "sunset", "beautiful", "dusty"];
         
         //These are the variable I am adding for wins, losses, the number of guess the user has and the letters left//
         //Are there any variable I am missing//
@@ -33,43 +35,58 @@
         var loss = 0;
         var guess = 15;
         var letGuess = [];
-        var wordGuess = [ "_" + "_" + "_" + "_"+ "_"+ "_" ]
-
-        //I levive this is where the user will maek th brower repsond when a key is let go//
+       
+//I dont think I have this right, I feel like have to place something different instead of comChoice.lenth?//
+        var generateComputerGuess = function(){
+        return computerChoice = [Math.floor(Math.random() * computerChoice.length)]
+        }
+        //I beleive this is where the user will make th brower repsond when a key is let go//
         document.onkeyup = function(event){
             var userGuess = event.key;
 
-        //I dont think I have this right, I feel like have to place something different instead of comChoice.lenth?//    
-            var comGuess = [Math.floor(Math.random() * comChoice.length)];
-
-            var answer = []{
-                for (i = 0; i < comGuess.length; i++){
-                    answer[i]
+            
+            
+        //This is the answer array for the users guess, this is were the letter chosen welther right or wrong will
+        //get iterated through this loop to add to the letters already picked//
+            var answer = [];
+                for ( var i = 0; i < computerGuess.length; i++) {
+                    answer[i] = "_";
                 }
             }
 
+            var lettersRemain = computerGuess.length;
 
-        //This is were the user will pick the letter used for the words//
+
+        //This is were the user will pick the letter used for the words I dont think i need this as I have
+        // the two loops above//
         var userPick = [ "q" , "w" , "e" , "r" , "t", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",];
 
 
-        for (i = 0; i < comChoice; i++){
+        for (i = 0; i < computerChoice; i++){
 //I am not sure what do really put in here//
-            console.log(comChoice[i]);
+            console.log(computerChoice[i]);
 //I know I am missing something here but I dont know what//
-            if (userPick === comChoice){
+            if (userPick === computerChoice){
                 //I want to add the letter to the blank spaces//
+                lettersRemain[i];
                 //how do you add the blank spaces//
                 guess--;
                 letGuess--;
+                //user gets to pick again//
 
 
-            if (userPick !== comChoice){
+            if (userPick !== computerChoice){
                 guess--;
                 letGuess--;
+                //I want to add the letter to the word bank so player knows he pick it//
+                //and allow the playe to choose again
 
-            if (userPick )
-            }
+
+            if  (userPick){ //end the game// 
+            guess = 0;
+            let guess = 15;
+            answer[i] > 15;
+            //when the user gets the word right//}
             }
         }
 
