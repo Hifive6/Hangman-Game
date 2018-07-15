@@ -27,89 +27,113 @@
 
 
         //These are the words I want the computer to pull from that the user will guess//
-        var computerChoice = ["desert", "mountains", "sunset", "beautiful", "dusty"];
+         var computerChoice = ["desert", "mountains", "sunset", "beautiful", "dusty"];   
+        console.log(computerChoice);
         
         //These are the variable I am adding for wins, losses, the number of guess the user has and the letters left//
         //Are there any variable I am missing//
-        var win = 0;
-        var loss = 0;
-        var guess = 15;
-        var letGuess = [];
-       
-//I dont think I have this right, I feel like have to place something different instead of comChoice.lenth?//
-        var generateComputerGuess = function(){
-        return computerChoice = [Math.floor(Math.random() * computerChoice.length)]
-        }
+//         var win = 0;
+//         var loss = 0;
+//         var guess = 15;
+             var letterGuess = [];
+             var correctGuess = [];
+             var incorrectGuesss = [];
+
+//        
+// //I believe I have this right, This will ask the computer to pick a word from my array.
+          var generateComputerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+          console.log(generateComputerGuess);
+         
+          //This is the answer array for the users guess, this is were the letter chosen welther right or wrong will
+//         //get iterated through this loop to add to the letters already picked//
+            //  var answerUnderscore = () => { 
+                 for ( var i = 0; i < generateComputerGuess.length; i++) {
+                     letterGuess.push("_");
+                 
+                    // answerUnderscore[i] = "_";
+                }
+
+         // var computerGuess = generateComputerGuess();
+
         //I beleive this is where the user will make th brower repsond when a key is let go//
         document.onkeyup = function(event){
-            var userGuess = event.key;
+           var userGuess = event.key;
+           //If the user gets the letter correct
+           if (generateComputerGuess.indexOf(userGuess) > -1) {
+           //add to the correct word field
+                correctGuess.push(userGuess); 
+                console.log(correctGuess);
+           }
+           else {
+               //add to the incorrect word field
+               incorrectGuess.push(userGuess);
+               console.log(incorrectGuess);
+           }
+        }
+        
+
+        
+                // document.addEventListener = function (event){
+                // var userGuess = event.addEventListener;
+                // console.log(event);
+                // }
+
+        //  document.addEventListener("keypress", (event) => {
+        //      console.log(event);
+        //  }) 
+        //     var userGuess = event.addEventListener;
+        //     console.log(event);
+        // }   
+            
+//        
+            
+
+//             var lettersRemain = computerGuess.length;
+                
+
+//         //This is were the user will pick the letter used for the words I dont think i need this as I have
+//         // the loops above//
+//         var userPick = [ "q" , "w" , "e" , "r" , "t", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",];
+
+// //this loop is edited out as a I dont think I need this as I have the one above
+//         //for (i = 0; i < computerChoice; i++){
+// //I am not sure what do really put in here//
+//             //console.log(computerChoice[i]);
+// //I know I am missing something here but I dont know what//
+
+//             if (userPick.indexOf(userGuess) > -1)
+//                 ;
+             
+//             if (userPick === computerChoice){
+//                 //I want to add the letter to the blank spaces//
+//                 lettersRemain[i];
+//                 //how do you add the blank spaces//
+//                 guess--;
+//                 letGuess--;
+//                 //user gets to pick again//
+//             };
+
+//             if (userPick !== computerChoice){
+//                 guess--;
+//                 letGuess--;
+//                 //I want to add the letter to the word bank so player knows he pick it//
+//                 //and allow the playe to choose again
+
+
+//             if  (userPick){ //end the game// 
+//             guess = 0;
+//             let guess = 15;
+//             answer[i] > 15;
+//             //when the user gets the word right//}
+//             }
+//         };
 
             
-            
-        //This is the answer array for the users guess, this is were the letter chosen welther right or wrong will
-        //get iterated through this loop to add to the letters already picked//
-            var answer = [];
-                for ( var i = 0; i < computerGuess.length; i++) {
-                    answer[i] = "_";
-                }
-            }
-
-            var lettersRemain = computerGuess.length;
-
-
-        //This is were the user will pick the letter used for the words I dont think i need this as I have
-        // the two loops above//
-        var userPick = [ "q" , "w" , "e" , "r" , "t", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m",];
-
-
-        for (i = 0; i < computerChoice; i++){
-//I am not sure what do really put in here//
-            console.log(computerChoice[i]);
-//I know I am missing something here but I dont know what//
-            if (userPick === computerChoice){
-                //I want to add the letter to the blank spaces//
-                lettersRemain[i];
-                //how do you add the blank spaces//
-                guess--;
-                letGuess--;
-                //user gets to pick again//
-
-
-            if (userPick !== computerChoice){
-                guess--;
-                letGuess--;
-                //I want to add the letter to the word bank so player knows he pick it//
-                //and allow the playe to choose again
-
-
-            if  (userPick){ //end the game// 
-            guess = 0;
-            let guess = 15;
-            answer[i] > 15;
-            //when the user gets the word right//}
-            }
-        }
-
-        }
+// };
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </script>
+</script>
 </body>
 
 </html>
