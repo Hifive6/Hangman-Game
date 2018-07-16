@@ -11,14 +11,14 @@
 <body>
     <!--This is the top of the heading I want to use when the user opens up the 
     game. These will be styled with Css or Bootstrap-->
-    <div id "game">
+    <div id = "game">
         <h1>HangMan</h1>
         <h2>Living in the SouthWest</h2>
         <p>Press any key to get started</p>
         <P>Wins</P>
         <p>Current Word</p>
-        <p>Number of Guess Remaining</p>
-        <p>Letters already Guessed</p>
+        <div id = "guess-left"> Number of Guess Remaining</div>
+        <div id = "blanks"> Letters already Guessed</div>
     </div>
 
     <!--This is the start of Javascript. how do i link like a css 
@@ -32,43 +32,85 @@
         
         //These are the variable I am adding for wins, losses, the number of guess the user has and the letters left//
         //Are there any variable I am missing//
-//         var win = 0;
-//         var loss = 0;
-//         var guess = 15;
+            var win = 0;
+            var loss = 0;
+             var guess = 9;
              var letterGuess = [];
+            
              var correctGuess = [];
-             var incorrectGuesss = [];
+             var wrongGuess = [];
+             
+             var wincounter = 0;
+             var genComputerGuess;
 
 //        
 // //I believe I have this right, This will ask the computer to pick a word from my array.
-          var generateComputerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-          console.log(generateComputerGuess);
+        // function gameStart()
+         var genComputerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+          console.log(genComputerGuess);
+        
+        //   wordLetters = generateComputerGuess.split(" ");
+        //   numBlanks = wordLetters.length;
          
           //This is the answer array for the users guess, this is were the letter chosen welther right or wrong will
 //         //get iterated through this loop to add to the letters already picked//
-            //  var answerUnderscore = () => { 
-                 for ( var i = 0; i < generateComputerGuess.length; i++) {
-                     letterGuess.push("_");
+        
+                 for (var i = 0; i < genComputerGuess.length; i++) 
+                 {
+                     letterGuess.push(" ");
+                     console.log(letterGuess);    
                  
-                    // answerUnderscore[i] = "_";
-                }
+                 
+                    document.getElementById("blanks").textContent = letterGuess.join(" ");
 
+    //html
+        // document.getElementById("guess-left").textContent = guess.join(" ");
+                 }     
          // var computerGuess = generateComputerGuess();
+        function winLose(){
+            if (wincounter === genComputerGuess.length){
+            alert ("Chicken Dinner");
+        }
 
+            else if(guess === 0){
+                alert("No Chicken for You");
+
+            }
+        }
         //I beleive this is where the user will make th brower repsond when a key is let go//
         document.onkeyup = function(event){
            var userGuess = event.key;
            //If the user gets the letter correct
-           if (generateComputerGuess.indexOf(userGuess) > -1) {
+           if (genComputerGuess.indexOf(userGuess) > -1)
+           {
            //add to the correct word field
-                correctGuess.push(userGuess); 
-                console.log(correctGuess);
+           for (var i = 0; i < genComputerGuess; i++)
+           {
+                // if (letterGuess[generateComputerGuess.indexOf(userGuess)] === userGuess){
+               if (genComputerGuess[i] ===  userGuess) 
+               {   
+                   correctGuess.push(userGuess); 
+                    letterGuess[i] = userGuess;  
+                    wincounter++;
+                    winLose();
+                    console.log(userGuess);
+               }
+                 
+             }   
            }
-           else {
+                
+           else
+           {
                //add to the incorrect word field
-               incorrectGuess.push(userGuess);
-               console.log(incorrectGuess);
+               wrongGuess.push(userGuess);
+               guess--;
+               winLose();
+
+
+
+               console.log(wrongGuess);
            }
+           
         }
         
 
