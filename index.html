@@ -19,6 +19,8 @@
         <p>Current Word</p>
         <div id = "guess-left"> Number of Guess Remaining</div>
         <div id = "blanks"> Letters already Guessed</div>
+        var correct = 
+        correct guess.push()
     </div>
 
     <!--This is the start of Javascript. how do i link like a css 
@@ -57,11 +59,11 @@
         
                  for (var i = 0; i < genComputerGuess.length; i++) 
                  {
-                     letterGuess.push(" ");
+                     letterGuess.push("_");
                      console.log(letterGuess);    
                  
                  
-                    document.getElementById("blanks").textContent = letterGuess.join(" ");
+                    // document.getElementById("blanks").textContent = letterGuess.join(" ");
 
     //html
         // document.getElementById("guess-left").textContent = guess.join(" ");
@@ -80,11 +82,16 @@
         //I beleive this is where the user will make th brower repsond when a key is let go//
         document.onkeyup = function(event){
            var userGuess = event.key;
+           if (correctGuess.indexOf(userGuess) === -1 && wrongGuess.indexOf(userGuess) === -1){
+
+           
+
+
            //If the user gets the letter correct
-           if (genComputerGuess.indexOf(userGuess) > -1)
+           if (genComputerGuess.indexOf(userGuess) > -1) 
            {
            //add to the correct word field
-           for (var i = 0; i < genComputerGuess; i++)
+           for (var i = 0; i < genComputerGuess.length; i++)
            {
                 // if (letterGuess[generateComputerGuess.indexOf(userGuess)] === userGuess){
                if (genComputerGuess[i] ===  userGuess) 
@@ -108,9 +115,12 @@
 
 
 
-               console.log(wrongGuess);
+               
+        
            }
-           
+           console.log(wrongGuess);
+           console.log(correctGuess);
+        }
         }
         
 
